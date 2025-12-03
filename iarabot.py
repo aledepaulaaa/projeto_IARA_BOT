@@ -52,7 +52,7 @@ def trigger_api_endpoint(path: str):
         logging.error(f"Erro de conexão ao tentar acessar {full_url}: {e}")
 
 # --- Definição das Tarefas (Jobs) ---
-# Cada função corresponde a um cron job do seu vercel.json
+# Cada função corresponde a um cron job vercel.json (no app nextjs iara)
 
 def job_eventos_proximos():
     trigger_api_endpoint("/api/planner/verificarplanner?modo=eventos_proximos")
@@ -123,4 +123,5 @@ try:
         # Espera 1 segundo antes de checar novamente para não sobrecarregar o processador
         time.sleep(1)
 except KeyboardInterrupt:
+
     logging.info("Parando o IaraBot... Até mais!")
